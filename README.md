@@ -8,3 +8,14 @@
    - axios
    - lodash
    - tailwindcss
+   - antd
+
+# Các thư viện Tailwind Component miễn phí
+   - `mambaui.com`
+   - `tailblocks.cc`
+   - `play.tailwindcss.com`
+   - `taiwindui.com`
+
+# Phần 1: Cấu hình thư mục
+   - Gồm các thư mục: `Assets`, `Components`, `Pages`, `Redux`, `Template`, và `Util`
+   - Redux gồm có: `Actions`, `Types`, `Reducer` và `configStore`, sau đó chèn store vào `index.js`
