@@ -9,6 +9,7 @@
    - lodash
    - tailwindcss
    - antd
+   - history
 
 # Các thư viện Tailwind Component miễn phí
    - `mambaui.com`
