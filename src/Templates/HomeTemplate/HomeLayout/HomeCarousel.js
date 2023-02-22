@@ -1,35 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Carousel } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { getCarouselAction } from "../../../Redux/Actions/CarouselAction.js";
+
 const contentStyle = {
-   height: "400px",
+   height: "500px",
    color: "#fff",
    lineHeight: "160px",
    textAlign: "center",
    background: "#364d79",
 };
-export default function HomeCarousel() {
-   return (
-      <Carousel autoplay>
-         <div>
-            <div style={contentStyle}>
-               <img src="https://picsum.photos/1000" alt="random pic" className="w-full" />
+
+export default function HomeCarousel(props) {
+   const { arrImg } = useSelector((state) => state.CarouselReducer);
+   const dispatch = useDispatch();
+   useEffect(() => {
+      dispatch(getCarouselAction);
+   });
+   const renderCarousel = () => {
+      return arrImg?.map((img, index) => {
+         return (
+            <div key={index} style={contentStyle}>
+               <img src={img.hinhAnh} alt="random pic" className="w-full" />
             </div>
-         </div>
-         <div>
-            <div style={contentStyle}>
-               <img src="https://picsum.photos/1000" alt="random pic" className="w-full" />
-            </div>
-         </div>
-         <div>
-            <div style={contentStyle}>
-               <img src="https://picsum.photos/1000" alt="random pic" className="w-full" />
-            </div>
-         </div>
-         <div>
-            <div style={contentStyle}>
-               <img src="https://picsum.photos/1000" alt="random pic" className="w-full" />
-            </div>
-         </div>
-      </Carousel>
-   );
+         );
+      });
+   };
+   return <Carousel autoplay>{renderCarousel()}</Carousel>;
 }
