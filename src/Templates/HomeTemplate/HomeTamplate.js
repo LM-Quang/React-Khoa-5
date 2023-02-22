@@ -1,4 +1,7 @@
 import { Route } from "react-router-dom";
+import Footer from "./HomeLayout/Footer.js";
+import Header from "./HomeLayout/Header.js";
+import HomeCarousel from "./HomeLayout/HomeCarousel.js";
 export const HomeTemplate = (props) => {
    // props include Component, exact, path
    const { Component, ...restProps } = props;
@@ -9,9 +12,10 @@ export const HomeTemplate = (props) => {
             // propsRoute includes props.history, location, match
             return (
                <>
-                  <header>This is Homepage's Header</header>
+                  <Header />
+                  <HomeCarousel />
                   <Component {...propsRoute} />
-                  <footer>This is Homepage's Footer</footer>
+                  <Footer />
                </>
             );
          }}
