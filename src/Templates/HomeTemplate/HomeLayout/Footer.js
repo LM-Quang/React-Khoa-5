@@ -1,6 +1,10 @@
+import _ from "lodash";
 import React from "react";
+import { useSelector } from "react-redux";
 
 export default function Footer() {
+   const { heThongRapChieu } = useSelector((state) => state.QuanLyRapReducer);
+   const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) => _.pick(heThongRap, ["maHeThongRap", "tenHeThongRap", "logo"]));
    return (
       <footer className="py-6 dark:bg-gray-800 dark:text-gray-50">
          <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
@@ -16,34 +20,16 @@ export default function Footer() {
                   </a>
                </div>
                <div className="col-span-6 text-center md:text-left md:col-span-3">
-                  <p className="pb-1 text-lg font-medium">Category</p>
-                  <ul>
-                     <li>
-                        <a rel="noopener noreferrer" href="/" className="hover:dark:text-violet-400">
-                           Link
-                        </a>
-                     </li>
-                     <li>
-                        <a rel="noopener noreferrer" href="/" className="hover:dark:text-violet-400">
-                           Link
-                        </a>
-                     </li>
-                     <li>
-                        <a rel="noopener noreferrer" href="/" className="hover:dark:text-violet-400">
-                           Link
-                        </a>
-                     </li>
-                     <li>
-                        <a rel="noopener noreferrer" href="/" className="hover:dark:text-violet-400">
-                           Link
-                        </a>
-                     </li>
-                     <li>
-                        <a rel="noopener noreferrer" href="/" className="hover:dark:text-violet-400">
-                           Link
-                        </a>
-                     </li>
-                  </ul>
+                  <p className="pb-1 text-lg font-medium">Partner</p>
+                  <div className="grid grid-cols-2 gap-2">
+                     {arrHeThongRap.map((heThongRap, index) => {
+                        return (
+                           <div key={index}>
+                              <img src={heThongRap.logo} style={{ width: 50 }} alt={heThongRap.tenHeThongRap} />
+                           </div>
+                        );
+                     })}
+                  </div>
                </div>
                <div className="col-span-6 text-center md:text-left md:col-span-3">
                   <p className="pb-1 text-lg font-medium">Category</p>

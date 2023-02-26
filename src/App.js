@@ -1,6 +1,7 @@
 import { createBrowserHistory } from "history";
 import { Route, Router, Switch } from "react-router-dom";
 import Contact from "./Pages/Contact/Contact.js";
+import Detail from "./Pages/Detail/Detail.js";
 import Home from "./Pages/Home/Home.js";
 import Login from "./Pages/Login/Login.js";
 import News from "./Pages/News/News.js";
@@ -16,6 +17,7 @@ export default function App() {
             <HomeTemplate path="/home" exact Component={Home} />
             <HomeTemplate path="/contact" exact Component={Contact} />
             <HomeTemplate path="/news" exact Component={News} />
+            <HomeTemplate path="/detail/:id" exact Component={Detail} />
             <Route path="/login" exact component={Login} />
             <Route path="/register" exact component={Register} />
          </Switch>

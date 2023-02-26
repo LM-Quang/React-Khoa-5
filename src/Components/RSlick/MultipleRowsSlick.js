@@ -1,8 +1,9 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
 import { SET_PHIM_DANG_CHIEU, SET_PHIM_SAP_CHIEU } from "../../Redux/Type/QuanLyPhimType.js";
-import Film from "../Film/Film.js";
+import Film_Flip from "../Film/Film_Flip.js";
 import styleSlick from "./MultipleRowsSlick.module.css";
 
 function SampleNextArrow(props) {
@@ -25,7 +26,7 @@ export default function MultipleRowsSlick() {
       centerMode: true,
       infinite: true,
       centerPadding: "0px",
-      slidesToShow: 3,
+      slidesToShow: 4,
       speed: 500,
       rows: 1,
       slidesPerRow: 2,
@@ -66,8 +67,8 @@ export default function MultipleRowsSlick() {
          <Slider {...settings}>
             {arrPhim.map((phim, index) => {
                return (
-                  <div key={index} className={`${styleSlick["width-item"]}`}>
-                     <Film phim={phim} />
+                  <div key={index} className="my-2 mx-2">
+                     <Film_Flip item={phim} />
                   </div>
                );
             })}

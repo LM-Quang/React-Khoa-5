@@ -11,6 +11,8 @@
    - antd
    - history
    - moment
+   - react slick
+   - customcard
 
 # Các thư viện Tailwind Component miễn phí
    - `mambaui.com`
@@ -52,3 +54,10 @@
    - Tổ chức Service `layThongTinLichChieuHeThongRap` (QuanLyRapService)
    - Tổ chức Reducer: `QuanLyRapReducer`
    - Lấy state từ Reducer về Component `Home`
+
+#　Phần 7: Giao diện trang Detail load dữ liệu phim
+   - Xây dựng giao diện
+   - Tổ chức Service `layThongTinLichChieuPhim` (QuanLyRapService)
+   - Tổ chức Reducer: `filmDetails` (QuanLyPhimReducer)
+   - Lấy id phim từ `props.params.id`
+   - Lấy state từ Reducer về Component `Details`
