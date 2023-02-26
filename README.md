@@ -10,6 +10,7 @@
    - tailwindcss
    - antd
    - history
+   - moment
 
 # Các thư viện Tailwind Component miễn phí
    - `mambaui.com`
@@ -24,9 +25,11 @@
 # Link API cho dự án Đặt vé xem phim
    - http://movieapi.cyberlearn.vn/swagger/index.html
    - http://movieapi.cyberlearn.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01
+
 # Phần 1: Cấu hình thư mục
    - Gồm các thư mục: `Assets`, `Components`, `Pages`, `Redux`, `Template`, và `Util`
    - Redux gồm có: `Actions`, `Types`, `Reducer` và `configStore`, sau đó chèn store vào `index.js`
+
 # Phần 2: Cấu hình cho App.js với các `Route `
 
 # Phần 3: Tạo HomeTemplate cho trong `Home` có Component chung: `Header`, `Footer`
@@ -39,6 +42,13 @@
 
 # Phần 5: Giao diện Trang chủ Load danh sách phim
    - Xây dựng giao diện
-   - Tổ chức Service `layDanhSachPhim`
+   - Tổ chức Service `layDanhSachPhim` (QuanLyPhimService)
    - Tổ chức Reducer: `QuanLyPhimReducer`
+   - Lấy state từ Reducer về Component `Home`
+
+
+# Phần 6: Giao diện Trang chủ Load danh sách cụm rạp
+   - Xây dựng giao diện
+   - Tổ chức Service `layThongTinLichChieuHeThongRap` (QuanLyRapService)
+   - Tổ chức Reducer: `QuanLyRapReducer`
    - Lấy state từ Reducer về Component `Home`
