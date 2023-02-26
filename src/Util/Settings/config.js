@@ -5,3 +5,4 @@ export const API_STATUS = {
    SUCCESS: 200,
    NOT_FOUND: 404,
 };
+export const USER_LOGIN = "USER_LOGIN";
