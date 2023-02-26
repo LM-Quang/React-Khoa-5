@@ -16,9 +16,9 @@
    - `tailblocks.cc`
    - `play.tailwindcss.com`
    - `taiwindui.com`
-   - `freefrntend.com`
+   - `freefrontend.com`
 
-# Các trang Web có React Componentt dựng sẵnsẵn
+# Các trang Web có React Component dựng sẵn
    - https://react-slick.neostack.com/docs/example/multiple-items/
 
 # Link API cho dự án Đặt vé xem phim
@@ -36,3 +36,9 @@
    - Sử dụng `useEffect` để kích hoạt gọi API load ra arImg
    - Trong `useEffect` dispatch 1 callback Function và thông qua `Redux thunk `để gửi dữ liệu lên `Reducer Carousel`
    - Sau khi `Reducer` cập nhật lại arrImg thì componet cũng sẽ cập nhật và load ra Banner phim
+
+# Phần 5: Giao diện Trang chủ Load danh sách phim
+   - Xây dựng giao diện
+   - Tổ chức Service `layDanhSachPhim`
+   - Tổ chức Reducer: `QuanLyPhimReducer`
+   - Lấy state từ Reducer về Component `Home`

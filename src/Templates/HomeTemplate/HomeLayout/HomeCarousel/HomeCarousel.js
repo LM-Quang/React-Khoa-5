@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
 import { Carousel } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { getCarouselAction } from "../../../Redux/Actions/CarouselAction.js";
-
+import { getCarouselAction } from "../../../../Redux/Actions/CarouselAction.js";
+import "./HomeCarousel.css";
 const contentStyle = {
-   height: "500px",
+   height: "300px",
    color: "#fff",
    lineHeight: "160px",
    textAlign: "center",
-   background: "#364d79",
+   backgroundPosition: "center",
+   backgroundSize: "100%",
+   backgroundRepeat: "no-repeat",
 };
 
 export default function HomeCarousel(props) {
@@ -20,11 +22,15 @@ export default function HomeCarousel(props) {
    const renderCarousel = () => {
       return arrImg?.map((img, index) => {
          return (
-            <div key={index} style={contentStyle}>
+            <div key={index} style={{ ...contentStyle, backgroundImage: `url(${img.hinhAnh})` }}>
                <img src={img.hinhAnh} alt="random pic" className="w-full" />
             </div>
          );
       });
    };
-   return <Carousel autoplay>{renderCarousel()}</Carousel>;
+   return (
+      <Carousel effect="fade" autoplay>
+         {renderCarousel()}
+      </Carousel>
+   );
 }
