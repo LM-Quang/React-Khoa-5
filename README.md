@@ -63,3 +63,9 @@
    - Lấy state từ Reducer về Component `Details`
 
 # Phần 8: Giao diện `Template trang Đặt vé` và sử dụng `React Lazy` để chèn hiệu ứng loading
+
+# Phần 9: Giao diện trang `UserTemplate` và trang `Login`
+   - Xây dựng giao diện
+   - Tổ chức Service `dangNhap` (QuanLyNguoiDungService)
+   - Tổ chức Reducer: `userLogin` (QuanLyNguoiDungService)
+   - Tổ chức Action `dangNhapAction`, khi đăng nhập thành công thì lưu `accessToken` vào `localStorage`

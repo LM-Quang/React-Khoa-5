@@ -9,9 +9,10 @@ import News from "./Pages/News/News.js";
 import Register from "./Pages/Register/Register.js";
 import { CheckOutTemplate } from "./Templates/CheckOutTemplate/CheckOutTemplate.js";
 import { HomeTemplate } from "./Templates/HomeTemplate/HomeTamplate.js";
+import { UserTemplate } from "./Templates/UserTemplate/UserTemplate.js";
 // Import React Lazy
-import { Suspense, lazy } from "react";
-const CheckOutTemplateLazy = lazy(() => import("./Templates/CheckOutTemplate/CheckOutTemplate.js"));
+// import { Suspense, lazy } from "react";
+// const CheckOutTemplateLazy = lazy(() => import("./Templates/CheckOutTemplate/CheckOutTemplate.js"));
 
 export const history = createBrowserHistory();
 export default function App() {
@@ -23,11 +24,12 @@ export default function App() {
             <HomeTemplate path="/contact" exact Component={Contact} />
             <HomeTemplate path="/news" exact Component={News} />
             <HomeTemplate path="/detail/:id" exact Component={Detail} />
-            <Route path="/login" exact component={Login} />
+            <UserTemplate path="/login" exact Component={Login} />
             <Route path="/register" exact component={Register} />
-            <Suspense fallback={<h1>LOADING...</h1>}>
+            <CheckOutTemplate path="/checkout/:id" exact Component={CheckOut} />
+            {/* <Suspense fallback={<h1>LOADING...</h1>}>
                <CheckOutTemplateLazy path="/checkout/:id" exact Component={CheckOut} />
-            </Suspense>
+            </Suspense> */}
          </Switch>
       </Router>
    );
