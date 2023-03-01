@@ -1,14 +1,17 @@
 import { useFormik } from "formik";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { dangNhapAction } from "../../Redux/Actions/QuanLyNguoiDungAction.js";
 
 export default function Login() {
+   const dispatch = useDispatch();
    const formik = useFormik({
       initialValues: {
          taiKhoan: "",
          matKhau: "",
       },
       onSubmit: (values) => {
-         console.log("value", values);
+         dispatch(dangNhapAction(values));
       },
    });
    return (
@@ -84,6 +87,8 @@ xl:text-bold"
                   </div>
                   <div className="mt-10">
                      <button
+                        type="button"
+                        onClick={formik.handleSubmit}
                         className="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
      font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
      shadow-lg"

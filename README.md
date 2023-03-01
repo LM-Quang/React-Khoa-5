@@ -1,5 +1,10 @@
 # React Khoá 5 - Dự án Đặt vé xem phim
-
+   - link source: [https://github.com/khaitruong1301/react_cyberlearn_khoahoc_05]
+   - [https://react-slick.neostack.com/docs/example/multiple-items]
+   - [http://movieapi.cyberlearn.vn/swagger/index.html]
+   - [https://docs.google.com/document/d/12N-u6ox6gt8FgML1Y3zbjipxIZRTN_vrtisJRzWy87c/edit]
+   - [https://freefrontend.com/css-card-hover-effects/]
+   - [http://movieapi.cyberlearn.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01]
 # Các thư viện sử dụng trong khoá này:
    - react-router-dom
    - react-redux

@@ -1,5 +1,6 @@
 import { createBrowserHistory } from "history";
 import { Route, Router, Switch } from "react-router-dom";
+import Loading from "./Components/Loading/Loading.js";
 import CheckOut from "./Pages/CheckOut/CheckOut.js";
 import Contact from "./Pages/Contact/Contact.js";
 import Detail from "./Pages/Detail/Detail.js";
@@ -18,6 +19,7 @@ export const history = createBrowserHistory();
 export default function App() {
    return (
       <Router history={history}>
+         <Loading />
          <Switch>
             <HomeTemplate path="/" exact Component={Home} />
             <HomeTemplate path="/home" exact Component={Home} />

@@ -21,7 +21,7 @@ export default function Detail(props) {
    const renderLichChieu = (cumRap) => {
       return cumRap.lichChieuPhim?.slice(0, 12).map((lichChieu, index) => {
          return (
-            <NavLink to="/" key={index} className="col-span-1 text-green-800 font-bold">
+            <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className="col-span-1 text-green-800 font-bold">
                {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
             </NavLink>
          );
