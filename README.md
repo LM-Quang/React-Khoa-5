@@ -74,3 +74,21 @@
    - Tổ chức Service `dangNhap` (QuanLyNguoiDungService)
    - Tổ chức Reducer: `userLogin` (QuanLyNguoiDungService)
    - Tổ chức Action `dangNhapAction`, khi đăng nhập thành công thì lưu `accessToken` vào `localStorage`
+
+# Phần 10: Giao diện trang Đặt vé `CheckOut.js`
+   - Xây dựng giao diện
+   - Tổ chức các `Service`, `Action`, `Reducer` kết nối đến Component
+   - Xử lý các tính năng liên quan đến đặt vé
+   - Dùng thư viện `aspnet/signalr` sử dụng tính năng `real time` khi đặt vé
+
+# Phần 10: Tính năng đa ngôn ngữ
+   - Cài đặt thư viện `react-i18next`
+   - Trong thư mục `public` tạo thư mục `Locales` và tạo file `translation.json` cho các ngôn ngữ mong muốn
+   - Chèn thư viện vào `index.js`
+   - Dùng thư viện trong `Header.js`
+
+# Phần 11: Hoàn tất các chức năng khác
+   - Xây dựng chức năng cho nút `Sign In`, `Sign Up` trong `Header.js`
+   - Kết nối các link giờ chiếu trong `HomeMenu` sang trang `CheckOut`
+   - Xây dựng nút đăng xuất và hiển thị thông tin tài khoản trong trang `CheckOut`
+   - Chèn hiệu ứng `window.scrollTo(0,0)` vào các `Template` và `Detail` để đảm bảo vị trị luôn ở đầu trang khi được load

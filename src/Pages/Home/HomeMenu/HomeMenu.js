@@ -6,7 +6,7 @@ export default function HomeMenu(props) {
    const renderLichChieuPhim = (phim) => {
       return phim.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
          return (
-            <NavLink key={index} to="/" className="text-2x1 text-green-400">
+            <NavLink key={index} to={`/checkout/${lichChieu.maLichChieu}`} className="text-2x1 text-green-400">
                {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
             </NavLink>
          );

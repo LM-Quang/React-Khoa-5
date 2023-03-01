@@ -4,13 +4,16 @@ import { datGheAction, datVeAction, layDanhSachPhongVeAction } from "../../Redux
 import style from "./CheckOut.module.css";
 import "./CheckOut.css";
 import { Tabs } from "antd";
-import { CheckOutlined, CloseOutlined, UserOutlined, SmileOutlined } from "@ant-design/icons";
+import { CheckOutlined, CloseOutlined, UserOutlined, SmileOutlined, HomeOutlined } from "@ant-design/icons";
 import { CHUYEN_TAB_ACTIVE, DAT_GHE } from "../../Redux/Type/QuanLyDatVeType.js";
 import _ from "lodash";
 import { ThongTinDatVe } from "../../_Core/Models/ThongTinDatVe.js";
 import { layThongTinNguoiDungAction } from "../../Redux/Actions/QuanLyNguoiDungAction.js";
 import moment from "moment";
 import { connection } from "../../index.js";
+import { history } from "../../App.js";
+import { TOKEN, USER_LOGIN } from "../../Util/Settings/config.js";
+import { NavLink } from "react-router-dom";
 
 function CheckOutComponent(props) {
    const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
@@ -301,6 +304,16 @@ function KQDatVe(props) {
 export default function CheckOut(props) {
    const dispatch = useDispatch();
    const { tabActive } = useSelector((state) => state.QuanLyDatVeReducer);
+   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+   useEffect(() => {
+      return () => {
+         dispatch({
+            type: CHUYEN_TAB_ACTIVE,
+            number: "1",
+         });
+      };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, []);
    const items = [
       {
          key: "1",
@@ -312,13 +325,56 @@ export default function CheckOut(props) {
          label: `02 KẾT QUẢ ĐẶT VÉ`,
          children: <KQDatVe {...props} />,
       },
+      {
+         key: "3",
+         label: (
+            <div className="text-center" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+               <NavLink to="/">
+                  <HomeOutlined style={{ marginLeft: 10, fontSize: 25 }} />
+               </NavLink>
+            </div>
+         ),
+         children: "",
+      },
    ];
+   const slot = (
+      <Fragment>
+         {!_.isEmpty(userLogin) ? (
+            <Fragment>
+               {" "}
+               <button
+                  onClick={() => {
+                     history.push("/profile");
+                  }}
+               >
+                  <div style={{ width: 50, height: 50, display: "flex", justifyContent: "center", alignItems: "center" }} className="text-2xl ml-5 rounded-full bg-red-200">
+                     {userLogin.taiKhoan.substr(0, 1)}
+                  </div>
+                  <p>{userLogin.taiKhoan}</p>
+               </button>
+               <button
+                  onClick={() => {
+                     localStorage.removeItem(USER_LOGIN);
+                     localStorage.removeItem(TOKEN);
+                     history.push("/home");
+                     window.location.reload();
+                  }}
+                  className="text-blue-800 ml-5"
+               >
+                  Đăng xuất
+               </button>
+            </Fragment>
+         ) : (
+            ""
+         )}
+      </Fragment>
+   );
    const onChange = (key) => {
       dispatch({ type: CHUYEN_TAB_ACTIVE, number: key });
    };
    return (
       <div className="p-5">
-         <Tabs activeKey={tabActive.toString()} items={items} onChange={onChange} />
+         <Tabs activeKey={tabActive.toString()} items={items} onChange={onChange} tabBarExtraContent={slot} />
       </div>
    );
 }

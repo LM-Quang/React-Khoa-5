@@ -12,6 +12,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { DOMAIN_CONNECT } from "./Util/Settings/config.js";
 //Cấu hình realtime (websocket với signalR)
 import * as signalR from "@aspnet/signalr";
+// import i18n (needs to be bundled ;))
+import "./i18n.js";
 //Đoạn code để kết nối đến server lắng nghe sự kiện từ server
 export const connection = new signalR.HubConnectionBuilder().withUrl(`${DOMAIN_CONNECT}/DatVeHub`).configureLogging(signalR.LogLevel.Information).build();
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -1,8 +1,67 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { history } from "../../../App.js";
-
+//Hook đa ngôn ngữ
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import _ from "lodash";
+import { TOKEN, USER_LOGIN } from "../../../Util/Settings/config.js";
+import { Select } from "antd";
+const { Option } = Select;
 export default function Header(props) {
+   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+   const { t, i18n } = useTranslation();
+   const handleChange = (value) => {
+      i18n.changeLanguage(value);
+   };
+   const renderLogin = () => {
+      if (_.isEmpty(userLogin)) {
+         return (
+            <>
+               <button
+                  onClick={() => {
+                     history.push("/login");
+                  }}
+                  className="self-center px-4 py-3 rounded"
+               >
+                  {t("signin")}
+               </button>
+               <button
+                  onClick={() => {
+                     history.push("/register");
+                  }}
+                  className="self-center px-8 py-3 font-semibold rounded text-coolGray-50"
+               >
+                  {t("register")}
+               </button>
+            </>
+         );
+      }
+      return (
+         <>
+            {" "}
+            <button
+               onClick={() => {
+                  history.push("/profile");
+               }}
+               className="self-center px-8 py-3 rounded"
+            >
+               Hello ! {userLogin.taiKhoan}
+            </button>
+            <button
+               onClick={() => {
+                  localStorage.removeItem(USER_LOGIN);
+                  localStorage.removeItem(TOKEN);
+                  history.push("/home");
+                  window.location.reload();
+               }}
+               className="text-yellow-500 mr-5"
+            >
+               Đăng xuất
+            </button>
+         </>
+      );
+   };
    return (
       <header className=" constainer p-4 bg-opacity-40 bg-black text-white fixed w-full z-10">
          <div className="container flex justify-between h-16 mx-auto">
@@ -25,34 +84,14 @@ export default function Header(props) {
                      Contact
                   </NavLink>
                </li>
-               <li className="flex">
-                  <NavLink rel="noopener noreferrer" to="/login" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent text-white">
-                     Login
-                  </NavLink>
-               </li>
-               <li className="flex">
-                  <NavLink rel="noopener noreferrer" to="/register" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent text-white">
-                     Register
-                  </NavLink>
-               </li>
             </ul>
             <div className="items-center flex-shrink-0 hidden lg:flex">
-               <button
-                  onClick={() => {
-                     history.push("/login");
-                  }}
-                  className="self-center px-8 py-3 rounded"
-               >
-                  Login
-               </button>
-               <button
-                  onClick={() => {
-                     history.push("/register");
-                  }}
-                  className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
-               >
-                  Register
-               </button>
+               {renderLogin()}
+               <Select defaultValue="en" style={{ width: 100 }} onChange={handleChange}>
+                  <Option value="en">Eng</Option>
+                  <Option value="ja">Ja</Option>
+                  <Option value="vi">Vi</Option>
+               </Select>
             </div>
             <button className="p-4 lg:hidden">
                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-gray-100">

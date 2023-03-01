@@ -12,6 +12,9 @@ export default function Detail(props) {
    const dispatch = useDispatch();
    const { filmDetail } = useSelector((state) => state.QuanLyPhimReducer);
    useEffect(() => {
+      window.scrollTo(0, 0);
+   });
+   useEffect(() => {
       // Get param info from URL
       const { id } = props.match.params;
       // Call API
