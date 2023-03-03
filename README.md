@@ -92,3 +92,11 @@
    - Kết nối các link giờ chiếu trong `HomeMenu` sang trang `CheckOut`
    - Xây dựng nút đăng xuất và hiển thị thông tin tài khoản trong trang `CheckOut`
    - Chèn hiệu ứng `window.scrollTo(0,0)` vào các `Template` và `Detail` để đảm bảo vị trị luôn ở đầu trang khi được load
+
+# Phần 12: Xây dựng trang Admin
+   - Xây dựng `AdminTemplate`
+   - Xây dựng các trang `Dashboard`, `Showtime`, `Films`, `Edit`, `AddNew`
+   - Xây dựng chức năng `Service`, `Action`, `Reducer` cho `QuanLyPhim`
+   - Kết nối đến các Component
+   - Trong Component `AddNew`, dùng `FormData()` của JavaScript để xử lý thông tin gửi về backend theo dạng `formData` (khác với json)
+   - Dùng `FileReader()` và các thuộc tính của thẻ img để xử lý khi upload hình ảnh vào `formData`

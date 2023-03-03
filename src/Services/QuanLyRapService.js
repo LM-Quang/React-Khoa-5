@@ -1,8 +1,12 @@
 import { BaseService } from "./BaseService.js";
 import { GROUP_ID } from "../Util/Settings/config.js";
 class QuanLyRapService extends BaseService {
-   // layThongTinHeThongRap = () => {};
-   // layThongTinCumRapTheoHeThong = () => {};
+   layThongTinHeThongRap = () => {
+      return this.get(`QuanLyRap/LayThongTinHeThongRap`);
+   };
+   layThongTinCumRapTheoHeThong = (maHeThongRap) => {
+      return this.get(`QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`);
+   };
    layThongTinLichChieuHeThongRap = () => {
       return this.get(`QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUP_ID}`);
    };

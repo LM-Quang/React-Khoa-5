@@ -1,12 +1,28 @@
-import { SET_DANH_SACH_PHIM, SET_PHIM_DANG_CHIEU, SET_PHIM_SAP_CHIEU } from "../Type/QuanLyPhimType.js";
+import { SET_DANH_SACH_PHIM, SET_PHIM_DANG_CHIEU, SET_PHIM_SAP_CHIEU, SET_THONG_TIN_PHIM } from "../Type/QuanLyPhimType.js";
 import { SET_CHI_TIET_PHIM } from "../Type/QuanLyRapType.js";
 
 const initialState = {
-   arrPhim: [],
+   arrPhim: [
+      {
+         maPhim: 0,
+         tenPhim: "",
+         biDanh: "",
+         trailer: "",
+         hinhAnh: "",
+         moTa: "",
+         maNhom: "",
+         ngayKhoiChieu: "",
+         danhGia: 0,
+         hot: true,
+         dangChieu: false,
+         sapChieu: true,
+      },
+   ],
    arrPhimDefault: [],
    dangChieu: true,
    sapChieu: true,
    filmDetail: {},
+   thongTinPhim: {},
 };
 
 export const QuanLyPhimReducer = (state = initialState, action) => {
@@ -26,6 +42,10 @@ export const QuanLyPhimReducer = (state = initialState, action) => {
       }
       case SET_CHI_TIET_PHIM: {
          return { ...state, filmDetail: action.filmDetail };
+      }
+      case SET_THONG_TIN_PHIM: {
+         state.thongTinPhim = action.thongTinPhim;
+         return { ...state };
       }
       default:
          return state;
